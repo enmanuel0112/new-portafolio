@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/new-portafolio/static/css/main.90d286b9.css",
+    "main.js": "/new-portafolio/static/js/main.087c7386.js",
+    "static/media/background-header.png": "/new-portafolio/static/media/background-header.b33a0a4b2dba1783f28a.png",
+    "static/media/burger.jpg": "/new-portafolio/static/media/burger.01defc5a009edb55e6e7.jpg",
+    "static/media/loopstudios.jpg": "/new-portafolio/static/media/loopstudios.1834124450be8329216e.jpg",
+    "static/media/about-picture.png": "/new-portafolio/static/media/about-picture.299aeb627468b146bfed.png",
+    "static/media/Star 1.png": "/new-portafolio/static/media/Star 1.521e127dea766b4550c5.png",
+    "static/media/dictionary.jpg": "/new-portafolio/static/media/dictionary.1a9ac056a641abc29f98.jpg",
+    "static/media/age-calculator.jpg": "/new-portafolio/static/media/age-calculator.f6528646fdc9071531f7.jpg",
+    "static/media/balls.png": "/new-portafolio/static/media/balls.9cceebd59e8381169be7.png",
+    "index.html": "/new-portafolio/index.html",
+    "main.90d286b9.css.map": "/new-portafolio/static/css/main.90d286b9.css.map",
+    "main.087c7386.js.map": "/new-portafolio/static/js/main.087c7386.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.90d286b9.css",
+    "static/js/main.087c7386.js"
+  ]
+}
