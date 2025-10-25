@@ -1,6 +1,6 @@
 @use 'variables' as v;
 
-@mixin phone {
+@mixin mobile {
     @media (max-width: 640px) {
         @content;
     }

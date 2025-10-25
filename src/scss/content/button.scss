@@ -1,0 +1,61 @@
+@use "../base/variables" as v;
+@use "../base/mixings" as m;
+
+// .btn{
+//     background-color: brown;
+// }
+
+.button-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: start;
+
+  button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: v.$white;
+    font-size: 0.7rem;
+    cursor: pointer;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: v.$lightgray;
+    .line {
+      display: block;
+      width: 50px;
+      height: 0;
+      border-bottom: 2px solid v.$lightgray;
+      transition: all ease-in-out 0.2s;
+    }
+  }
+  button:hover {
+    color: v.$lighterGray;
+    .line {
+      border-bottom: 2px solid v.$lighterGray;
+      width: 70px;
+      padding: 0px 10px;
+      transition: all ease-in-out 0.2s;
+    }
+  }
+
+  .nuevo {
+    transition: all ease-in-out 0.2s;
+    color: v.$lighterGray;
+    .line {
+      border-bottom: 2px solid v.$lighterGray;
+      width: 70px;
+      padding: 0px 10px;
+      transition: all ease-in-out 0.2s;
+    }
+  }
+}
+
+@include m.ipadMini {
+  .button-content {
+    display: none;
+  }
+}

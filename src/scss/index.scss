@@ -7,5 +7,12 @@
 }
 
 body {
-    background-color: v.$bgPrimary;
-}
+    background-color: v.$mainBackground;
+     color: v.$white;
+
+     font-family:'montserrat', sans-serif;
+     p{
+            line-height: 1.3;
+     }
+} 
+

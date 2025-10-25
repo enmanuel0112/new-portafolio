@@ -1,103 +1,66 @@
-@use '../base/variables' as v;
-@use '../base/mixings' as m;
+@use "../base/variables" as v;
+@use "../base/mixings" as m;
 
-.App {
-    width: 100%;
+.app {
+  width: 100%;
+  margin: 5rem 0;
+  display: flex;
+align-items: center;
+justify-content: center;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: first baseline;
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
     height: auto;
-    font-family: 'Courier New', Courier, monospace;
 
-    header {
-        position: relative;
-        height: 70vh;
-        width: auto;
-
-        .header-image {
-            background-repeat: no-repeat;
-            background-position: center;
-            object-fit: fill;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero {
-            color: v.$textColor;
-            position: absolute;
-            width: 100%;
-            top: 40%;
-            text-align: center;
-
-            h1 {
-                font-size: 2.5rem;
-                margin-bottom: 20px;
-            }
-
-            a {
-                text-decoration: none;
-                font-size: 1.5rem;
-                color: v.$black;
-                font-weight: bold;
-                background-color: v.$textColor;
-                padding: 8px;
-                border-radius: 5px;
-                transition: 0.5s;
-                text-transform: uppercase;
-            }
-
-            a:hover {
-                background-color: v.$textPurple;
-                transition: 0.5s;
-                color: v.$textColor;
-            }
-        }
+    .aside-sticky {
+      position: sticky;
+      top: 4rem;
+      align-self: start;
+      height: auto;
+      overflow: hidden;
+      z-index: 10;
     }
-
-    //mediaQuery
-
-    @include m.ipadPro {
-        header {
-            height: 60vh;
-
-            .header-image {
-                object-fit: cover;
-            }
-
-            .hero {
-                top: 40%;
-
-                h1 {
-                    font-size: 2rem;
-                }
-
-                a {
-                    font-size: 1.5rem;
-                }
-            }
-        }
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 15rem;
+      align-items: start;
     }
+  }
+}
 
-    .about-title,
-    .projects-title {
-        color: v.$textColor;
-        text-align: center;
-        margin: 5rem 0;
-        font-size: 2.5rem;
+@include m.ipadPro {
+  .app {
+    margin: 5rem 0;
+    display: flex;
+    .container {
+      grid-template-columns: 50% 50%;
+      width: 90%;
+      position: relative;
+      .aside-sticky {
+        position: sticky;
+        margin-bottom: 2rem;
+      }
     }
+  }
+}
 
-    .footer {
-        background-color: #131313;
-        width: 100%;
-        height: auto;
-
-        h2 {
-            font-size: 2rem;
-            color: v.$textColor;
-            text-align: center;
-            padding: 2rem;
-
-            span {
-                color: v.$textPurple;
-            }
-        }
+@include m.ipadMini {
+  .app {
+    margin: 3rem 0;
+    display: flex;
+    .container {
+      grid-template-columns: 100%;
+      width: 90%;
+      position: relative;
+      .aside-sticky {
+        position: static;
+        margin-bottom: 2rem;
+      }
     }
-
+  }
 }

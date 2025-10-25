@@ -1,133 +1,146 @@
-@use '../base/variables' as v;
-@use '../base/mixings' as m;
+@use "../base/variables" as v;
+@use "../base/mixings" as m;
 
-
-.my-pages-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 5rem;
-    width: 100%;
-    padding: 2rem;
-    margin-bottom: 4rem;
-
-    .my-pages-content {
-        margin: auto;
-
-        .my-pages {
-            width: 100%;
-            margin: auto;
-
-            .image-content {
-                width: 600px;
-                overflow: hidden;
-                position: relative;
-
-                img {
-                    width: 100%;
-                    border-radius: 5px;
-                    cursor: pointer;
-                    transition: 0.5s ease-in-out;
-                }
-
-                img:hover {
-                    transform: scale(1.2);
-                    transition: 0.5s ease-in-out;
-                    object-fit: cover;
-                }
-            }
-
-            .about-projects {
-                width: 100%;
-                padding: 1rem 0;
-
-                h2 {
-                    color: v.$textColor;
-                    text-transform: uppercase;
-                }
-
-                p {
-                    color: v.$textPurple;
-                    text-transform: uppercase;
-                    padding: 10px 0;
-                }
-
-                .project-links {
-                    display: flex;
-                    gap: 1rem;
-
-                    .view-page,
-                    .view-code {
-                        text-decoration: none;
-                        color: v.$textColor;
-                        font-size: 1.2rem;
-
-                    }
-
-                    a {
-                        position: relative;
-                    }
-
-                    a::before {
-                        content: '';
-                        position: absolute;
-                        bottom: -8px;
-                        height: 2px;
-                        width: 100%;
-                        background-color: v.$textPurple;
-                        transform: scaleX(0);
-                        transition: transform 0.5s linear;
-                    }
-
-                    a:hover::before {
-                        transform: scaleX(1);
-
-                    }
-                }
-
-            }
-
-        }
+.projects {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  h2{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: v.$white;
+    text-transform: uppercase;
+    align-items: start;
+  }
+  a {
+    text-decoration: none;
+  }
+  .container-project-card {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    gap: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    .project-image {
+      width: auto;
+      img {
+        width: 200px;
+        height: 200px;
+        height: auto;
+        object-fit: cover;
+       border-radius: 5px;
+      }
     }
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      h3 {
+        font-size: 1.5rem;
+        color: v.$white;
+        margin-bottom: 1rem;
+      }
+      p {
+        font-size: 1rem;
+        color: v.$lightgray;
+        width: 300px;
+      }
+    }
+  }
+  .container-project-card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(rgba(45, 46, 46, 0.35), rgba(73, 73, 73, 0.35));
+    filter: blur(2px);
+    border-radius: 12px;
+    opacity: 0;
+    pointer-events: none;
 
-
+    transition: opacity 0.25s ease;
+  }
+}
+.active {
+  top: 4rem;
+}
+.container-project-card:hover::before {
+  opacity: 1;
 }
 
+.toolsContainer {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  span {
+    background-color: v.$lighterGray;
+    padding: 0.3rem 0.8rem;
+    color: v.$black;
+    border-radius: 12px;
+    font-size: 0.8rem;
+  }
+}
+
+// Responsive Design
 @include m.ipadPro {
-    .my-pages-container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        padding: 0;
-
-        .my-pages-content {
-            margin: auto;
-
-            .my-pages {
-                width: 90%;
-                margin: auto;
-
-                .image-content {
-                    width: 100%;
-                    overflow: hidden;
-                    position: relative;
-
-                    img {
-                        width: 100%;
-                        border-radius: 5px;
-                        cursor: pointer;
-                        transition: 0.5s ease-in-out;
-                    }
-
-                    img:hover {
-                        transform: scale(1.2);
-                        transition: 0.5s ease-in-out;
-                        object-fit: cover;
-                    }
-                }
-
-            }
+  .projects {
+    .container-project-card {
+      .project-image {
+        img {
+          object-fit: cover;
         }
-
+      }
+      .project-card {
+        h3 {
+          font-size: 1.3rem;
+        }
+        p {
+          width: 100%;
+          font-size: 0.9rem;
+        }
+      }
     }
+  }
 
+  .toolsContainer {
+    span {
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+    }
+  }
+}
 
+@include m.mobile {
+  .projects {
+    .container-project-card {
+      flex-direction: column;
+
+      .project-image {
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
+      }
+      .project-card {
+        h3 {
+          font-size: 1.2rem;
+        }
+        p {
+          width: 100%;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  .toolsContainer {
+    span {
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+    }
+  }
 }
